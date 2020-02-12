@@ -11,6 +11,7 @@ using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
 using BooksApi.Models;
+using BooksApi.Data;
 using Microsoft.Extensions.Options;
 using BooksApi.Services;
 using Microsoft.OpenApi.Models;
@@ -30,15 +31,15 @@ namespace BooksApi
         public void ConfigureServices(IServiceCollection services)
         {
 
-            services.Configure<BookstoreDatabaseSettings>(
-        Configuration.GetSection(nameof(BookstoreDatabaseSettings)));
+        services.Configure<StoreDatabaseSettings>(
+        Configuration.GetSection(nameof(StoreDatabaseSettings)));
 
-    services.AddSingleton<IBookstoreDatabaseSettings>(sp =>
-        sp.GetRequiredService<IOptions<BookstoreDatabaseSettings>>().Value);
+        services.AddSingleton<IStoreDatabaseSettings>(sp =>
+        sp.GetRequiredService<IOptions<StoreDatabaseSettings>>().Value);
 
-            services.AddSingleton<BookService>();
+        services.AddSingleton<BookService>();
             
-            services.AddControllers();
+        services.AddControllers();
 
 
              #region Swagger

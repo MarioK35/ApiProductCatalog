@@ -7339,11 +7339,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\mario\\NoSql\\BooksApi\\BooksApi.csproj",
+      "projectUniqueName": "C:\\Users\\mario\\NoSql\\Catalogs\\NoSql\\BooksApi.csproj",
       "projectName": "BooksApi",
-      "projectPath": "C:\\Users\\mario\\NoSql\\BooksApi\\BooksApi.csproj",
+      "projectPath": "C:\\Users\\mario\\NoSql\\Catalogs\\NoSql\\BooksApi.csproj",
       "packagesPath": "C:\\Users\\mario\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\mario\\NoSql\\BooksApi\\obj\\",
+      "outputPath": "C:\\Users\\mario\\NoSql\\Catalogs\\NoSql\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\mario\\AppData\\Roaming\\NuGet\\NuGet.Config",
