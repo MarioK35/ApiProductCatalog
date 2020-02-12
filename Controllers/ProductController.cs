@@ -25,18 +25,18 @@ namespace BooksApi.Controllers
         [HttpGet("{id:length(24)}", Name = "GetBook")]
         public ActionResult<Product> Get(string id)
         {
-            var book = _productService.Get(id);
+            var product = _productService.Get(id);
 
-            if (book == null)
+            if (product == null)
             {
                 return NotFound();
             }
 
-            return book;
+            return product;
         }
 
         [HttpPost]
-        public ActionResult<Book> Create(Product product)
+        public ActionResult<Product> Create(Product product)
         {
             _productService.Create(product);
 
@@ -46,9 +46,9 @@ namespace BooksApi.Controllers
         [HttpPut("{id:length(24)}")]
         public IActionResult Update(string id, Product productIn)
         {
-            var book = _productService.Get(id);
+            var product = _productService.Get(id);
 
-            if (book == null)
+            if (product == null)
             {
                 return NotFound();
             }
