@@ -5,10 +5,9 @@ namespace BooksApi.Models
 {
     public class Pricing{
 
-         [BsonId]
-        [BsonRepresentation(BsonType.ObjectId)]
-        public decimal PrecioLista {get;set;}
-        public decimal PrecioProveedor {get;set;}
+        
+        public string PrecioLista {get;set;}
+        public string PrecioProveedor {get;set;}
         
 
     }

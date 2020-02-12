@@ -37,8 +37,8 @@ namespace BooksApi
         services.AddSingleton<IStoreDatabaseSettings>(sp =>
         sp.GetRequiredService<IOptions<StoreDatabaseSettings>>().Value);
 
-        services.AddSingleton<BookService>();
-            
+        
+        services.AddSingleton<ProductService>();
         services.AddControllers();
 
 

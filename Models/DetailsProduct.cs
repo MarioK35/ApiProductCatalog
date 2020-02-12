@@ -6,8 +6,7 @@ namespace BooksApi.Models
 {
     public class DetailsProduct{
 
-         [BsonId]
-        [BsonRepresentation(BsonType.ObjectId)]
+        
     
         public List<string> Artista {get;set;}
 
