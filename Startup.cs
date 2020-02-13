@@ -39,7 +39,9 @@ namespace BooksApi
 
         
         services.AddSingleton<ProductService>();
-        services.AddControllers();
+  services.AddControllers()
+    .AddNewtonsoftJson(options => options.UseMemberCasing());
+
 
 
              #region Swagger

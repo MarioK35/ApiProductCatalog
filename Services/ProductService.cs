@@ -10,41 +10,40 @@ namespace BooksApi.Services
 {
     public class ProductService
     {
+        private readonly IMongoCollection<Product> _books;
 
-        private readonly IMongoCollection<Product> _product;
-
-         public ProductService(IStoreDatabaseSettings settings)
+        public ProductService(IStoreDatabaseSettings settings)
         {
             var client = new MongoClient(settings.ConnectionString);
             var database = client.GetDatabase(settings.DatabaseName);
 
-            _product = database.GetCollection<Product>(settings.BooksCollectionName);
+            _books = database.GetCollection<Product>(settings.BooksCollectionName);
         }
 
-
-        
         public List<Product> Get() =>
-            _product.Find(book => true).ToList();
+            _books.Find(book => true).ToList();
 
         public Product Get(string id) =>
-            _product.Find<Product>(product => product.Folio == id).FirstOrDefault();
+            _books.Find<Product>(book => book.Folio == id).FirstOrDefault();
 
-        public Product Create(Product product)
+        public Product Create(Product book)
         {
-            _product.InsertOne(product);
-            return product;
+            _books.InsertOne(book);
+            return book;
         }
-        public void Update(string id, Product productIn) =>
-            _product.ReplaceOne(Product => Product.Folio == id, productIn);
 
-        public void Remove(Product productIn) =>
-            _product.DeleteOne(Product => Product.Folio == productIn.Folio);
+        public void Update(string id, Product bookIn) =>
+            _books.ReplaceOne(book => book.Folio == id, bookIn);
+
+        public void Remove(Product bookIn) =>
+            _books.DeleteOne(book => book.Folio == bookIn.Folio);
 
         public void Remove(string id) => 
-            _product.DeleteOne(Product => Product.Folio == id);
+            _books.DeleteOne(book => book.Folio == id);
   
 
+        
+}
 
     }
     
-}

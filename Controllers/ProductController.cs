@@ -22,7 +22,7 @@ namespace BooksApi.Controllers
         public ActionResult<List<Product>> Get() =>
             _productService.Get();
 
-        [HttpGet("{id:length(24)}", Name = "GetBook")]
+        [HttpGet("{id:length(24)}", Name = "GetProduct")]
         public ActionResult<Product> Get(string id)
         {
             var product = _productService.Get(id);
