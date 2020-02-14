@@ -30,15 +30,29 @@ namespace BooksApi
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
-            
-        services.Configure<StoreDatabaseSettingsProduct>(
-        Configuration.GetSection(nameof(StoreDatabaseSettingsProduct)));
+
+        services.Configure<StoreDatabaseSettings>(
+        Configuration.GetSection(nameof(StoreDatabaseSettings)));
 
         services.AddSingleton<IStoreDatabaseSettings>(sp =>
-        sp.GetRequiredService<IOptions<StoreDatabaseSettingsProduct>>().Value);
+        sp.GetRequiredService<IOptions<StoreDatabaseSettings>>().Value);
+
+        services.Configure<StoreDatabaseSettingsCart>(
+        Configuration.GetSection(nameof(StoreDatabaseSettingsCart)));
+
+        services.AddSingleton<IStoreDatabaseSettingsCart>(sp =>
+        sp.GetRequiredService<IOptions<StoreDatabaseSettingsCart>>().Value);
+
+        services.Configure<StoreDatabaseSettingsInventory>(
+        Configuration.GetSection(nameof(StoreDatabaseSettingsInventory)));
+
+        services.AddSingleton<IStoreDatabaseSettingsInventory>(sp =>
+        sp.GetRequiredService<IOptions<StoreDatabaseSettingsInventory>>().Value);
 
         
         services.AddSingleton<ProductService>();
+        services.AddSingleton<CartService>();
+        services.AddSingleton<InventoryService>();
   services.AddControllers()
     .AddNewtonsoftJson(options => options.UseMemberCasing());
 

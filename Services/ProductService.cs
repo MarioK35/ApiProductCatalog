@@ -3,8 +3,7 @@ using BooksApi.Data;
 using MongoDB.Driver;
 using System.Collections.Generic;
 using System.Linq;
-using Microsoft.Extensions.DependencyInjection;
-using Microsoft.Extensions.Options;
+
 
 namespace BooksApi.Services
 {
