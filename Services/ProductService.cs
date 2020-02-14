@@ -26,6 +26,8 @@ namespace BooksApi.Services
         public Product Get(string id) =>
             _books.Find<Product>(book => book.Folio == id).FirstOrDefault();
 
+    
+        
         public Product Create(Product book)
         {
             _books.InsertOne(book);

@@ -30,12 +30,12 @@ namespace BooksApi
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
-
-        services.Configure<StoreDatabaseSettings>(
-        Configuration.GetSection(nameof(StoreDatabaseSettings)));
+            
+        services.Configure<StoreDatabaseSettingsProduct>(
+        Configuration.GetSection(nameof(StoreDatabaseSettingsProduct)));
 
         services.AddSingleton<IStoreDatabaseSettings>(sp =>
-        sp.GetRequiredService<IOptions<StoreDatabaseSettings>>().Value);
+        sp.GetRequiredService<IOptions<StoreDatabaseSettingsProduct>>().Value);
 
         
         services.AddSingleton<ProductService>();
@@ -47,7 +47,7 @@ namespace BooksApi
              #region Swagger
             services.AddSwaggerGen(c =>
             {
-                 c.SwaggerDoc("v1", new OpenApiInfo { Title = "NoSQL API", Version = "v0.1" });
+                 c.SwaggerDoc("v1", new OpenApiInfo { Title = "Catalog API", Version = "v0.1" });
                  c.AddSecurityDefinition("Bearer", new OpenApiSecurityScheme()
                     { 
                     In = ParameterLocation.Header, 
