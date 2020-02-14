@@ -33,15 +33,7 @@ namespace BooksApi.Controllers
             return cart;
         }
 
-       
 
-        [HttpPost]
-        public ActionResult<Cart> Create(Cart cart)
-        {
-            _cartService.Create(cart);
-
-            return CreatedAtRoute("GetCart", new { id = cart.Id.ToString() }, cart);
-        }
 
         [HttpPut("{id:length(24)}")]
         public IActionResult Update(string id, Cart cartIn)

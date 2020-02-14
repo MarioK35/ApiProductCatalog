@@ -35,13 +35,6 @@ namespace BooksApi.Controllers
 
        
 
-        [HttpPost]
-        public ActionResult<Inventory> Create(Inventory inventory)
-        {
-            _inventoryService.Create(inventory);
-
-            return CreatedAtRoute("GetInventory", new { id = inventory.Id.ToString() }, inventory);
-        }
 
         [HttpPut("{id:length(24)}")]
         public IActionResult Update(string id, Inventory invetoryIn)
